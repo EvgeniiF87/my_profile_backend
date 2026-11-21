@@ -1,0 +1,55 @@
+mutation CreateUser($data: CreateUserInput!) {
+  createUser(createUserInput: $data) {
+    name
+    email
+  }
+}
+
+mutation CreateProduct($data: CreateProductInput!) {
+  createProduct(createProductInput: $data) {
+    name
+  }
+}
+
+mutation {
+  removeProduct(id: 6) {
+    name
+  }
+}
+
+mutation UpdateProduct($data: UpdateProductInput!) {
+  updateProduct(updateProductInput: $data) {
+    name
+  }
+}
+
+mutation UpdateUser($data: UpdateUserInput!) {
+  updateUser(updateUserInput: $data) {
+    name
+    email
+  }
+}
+
+query {
+  users {
+    name,
+    products {
+      name
+    }
+  }
+}
+
+query {
+  product(id: 6) {
+    name
+  }
+}
+
+
+{
+  "data": {
+    "id": 5,
+    "name": "New product 1987, from user name Her",
+    "userID": 3
+  }
+}

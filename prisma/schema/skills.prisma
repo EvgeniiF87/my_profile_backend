@@ -1,0 +1,11 @@
+model Skills {
+  id Int @default(autoincrement()) @id 
+
+  name String @unique
+
+  profileID Int @map("profile_id")
+
+  profile Profile @relation(fields: [profileID], references: [id], onDelete: Cascade)
+
+  @@map("skills")
+}

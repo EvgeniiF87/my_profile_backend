@@ -1,0 +1,106 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateExperienceInput {
+  company: String!
+  endDate: DateTime
+  position: String!
+  profileID: Int!
+  startDate: DateTime!
+}
+
+input CreateResponsibilityInput {
+  experienceID: Int!
+  name: String!
+}
+
+input CreateSkillInput {
+  name: String!
+  profileID: ID!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type ExperienceEntity {
+  company: String!
+  endDate: DateTime
+  id: ID!
+  period: String!
+  position: String!
+  profile: ProfileEntity!
+  profileID: Int!
+  responsibilities: [ResponsibilityEntity!]!
+  startDate: DateTime!
+}
+
+type Mutation {
+  createExperience(createExperienceInput: CreateExperienceInput!): ExperienceEntity!
+  createResponsibility(createResponsibilityInput: CreateResponsibilityInput!): ResponsibilityEntity!
+  createSkill(createSkillInput: CreateSkillInput!): SkillEntity!
+  removeExperience(id: Int!): ExperienceEntity!
+  removeResponsibility(id: Int!): ResponsibilityEntity!
+  removeSkill(id: Int!): SkillEntity!
+  updateExperience(updateExperienceInput: UpdateExperienceInput!): ExperienceEntity!
+  updateResponsibility(updateResponsibilityInput: UpdateResponsibilityInput!): ResponsibilityEntity!
+  updateSkill(updateSkillInput: UpdateSkillInput!): SkillEntity!
+}
+
+type ProfileEntity {
+  email: String!
+  experience: [ExperienceEntity!]!
+  id: Int!
+  location: String!
+  name: String!
+  phone: String!
+  skills: [SkillEntity!]!
+  telegram: String!
+}
+
+type Query {
+  experience(id: Int!): ExperienceEntity!
+  experiences: [ExperienceEntity!]!
+  profile: [ProfileEntity!]!
+  responsibilities: [ResponsibilityEntity!]!
+  responsibility(id: Int!): ResponsibilityEntity!
+  skill(id: Int!): SkillEntity!
+  skills: [SkillEntity!]!
+}
+
+type ResponsibilityEntity {
+  experience: ExperienceEntity!
+  experienceID: Int!
+  id: ID!
+  name: String!
+}
+
+type SkillEntity {
+  id: Int!
+  name: String!
+  profile: ProfileEntity!
+  profileID: Int!
+}
+
+input UpdateExperienceInput {
+  company: String
+  endDate: DateTime
+  id: ID!
+  position: String
+  profileID: Int
+  startDate: DateTime
+}
+
+input UpdateResponsibilityInput {
+  experienceID: Int
+  id: ID!
+  name: String
+}
+
+input UpdateSkillInput {
+  id: ID!
+  name: String
+  profileID: ID
+}

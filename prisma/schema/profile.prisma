@@ -1,0 +1,19 @@
+model Profile {
+  id Int @default(autoincrement()) @id 
+
+  name String @unique
+
+  email String @unique
+
+  phone String
+
+  telegram String
+
+  location String
+
+  skills Skills[]
+
+  experience Experience[]
+
+  @@map("profile")
+}

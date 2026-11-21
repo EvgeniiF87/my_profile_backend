@@ -1,0 +1,19 @@
+model Experience {
+  id Int @default(autoincrement()) @id
+
+  company String
+
+  position String
+
+  startDate DateTime @map("start_date")
+
+  endDate DateTime @map("end_date")
+
+  profileID Int @map("profile_id")
+
+  profile Profile @relation(fields: [profileID], references: [id], onDelete: Cascade)
+
+  responsibilities Responsibility[]
+
+  @@map("experience")
+}

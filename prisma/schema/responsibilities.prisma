@@ -1,0 +1,11 @@
+model Responsibility {
+  id Int @default(autoincrement()) @id
+
+  name String
+
+  experienceID Int @map("experience_id")
+
+  experience Experience @relation(fields: [experienceID], references: [id], onDelete: Cascade)
+
+  @@map("responsibilities")
+}

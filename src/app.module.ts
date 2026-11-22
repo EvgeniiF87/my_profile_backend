@@ -18,9 +18,7 @@ import { ResponsibilityModule } from './responsibility/responsibility.module';
           ? true
           : join(process.cwd(), 'src/schema.gql'),
       sortSchema: true,
-      graphiql: {
-        url: '/graphql',
-      },
+      graphiql: true,
     }),
     ProfileModule,
     SkillModule,

@@ -10,7 +10,9 @@ export class PrismaService
 {
   constructor(configService: ConfigService) {
     const adapter = new PrismaPg({
-      connectionString: configService.getOrThrow<string>('DB_DATABASE_URL'),
+      connectionString: configService.getOrThrow<string>(
+        'DB_DATABASE_URL_POOLED',
+      ),
     });
 
     super({ adapter });
